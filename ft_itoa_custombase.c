@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 16:20:32 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/04 21:10:35 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/17 23:13:01 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 
 char	*ft_itoa_custombase(unsigned long value, int base)
 {
-	char	*str;
-	char	*digits;
+	char			*str;
+	char			*digits;
+	int				len;
+	unsigned long	tmp;
 
 	digits = "0123456789abcdef";
-	auto int len = 0;
-	auto unsigned long tmp = value;
+	len = 0;
+	tmp = value;
 	while (tmp != 0)
 	{
 		tmp /= base;

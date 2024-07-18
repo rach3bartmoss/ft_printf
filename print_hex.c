@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:29:52 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/13 01:28:42 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/17 23:44:13 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,41 @@ static int	print_prefix(int prefix_len, t_flags *flags, t_list *op)
 	return (0);
 }
 
-void	print_hex(t_flags *flags, t_list *op)
+static int	handle_flags(t_flags *flags, unsigned int value, int len,
+		t_list *op)
 {
-	char	*str;
+	int	prefix_len;
+	int	padding;
 
-	auto unsigned int value = va_arg(op->ap, unsigned int);
-	str = ft_itoa_custombase(value, 16);
-	auto int len = ft_strlen(str);
-	auto int prefix_len = 0;
+	prefix_len = 0;
 	if (flags->padding == '#' && value != 0)
 		prefix_len = 2;
 	if (flags->precision >= 0 && flags->precision > len)
 		len = flags->precision;
-	auto int padding = 0;
+	padding = 0;
 	if (flags->width > len + prefix_len)
 		padding = flags->width - (len + prefix_len);
 	if (flags->padding != '-' && flags->padding != '0' && padding > 0)
 		print_padding(padding, ' ', op);
 	print_prefix(prefix_len, flags, op);
 	if (flags->precision > 0)
-		print_padding(flags->precision - ft_strlen(str), '0', op);
+		print_padding(flags->precision - len, '0', op);
 	if (flags->padding == '0' && padding > 0 && flags->precision < 0)
 		print_padding(padding, '0', op);
+	return (padding);
+}
+
+void	print_hex(t_flags *flags, t_list *op)
+{
+	char			*str;
+	unsigned int	value;
+	int				len;
+	int				padding;
+
+	value = va_arg(op->ap, unsigned int);
+	str = ft_itoa_custombase(value, 16);
+	len = ft_strlen(str);
+	padding = handle_flags(flags, value, len, op);
 	ft_putstr(str, op, flags);
 	if (flags->padding == '-' && padding > 0)
 		print_padding(padding, ' ', op);

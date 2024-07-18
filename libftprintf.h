@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/13 01:30:00 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/17 23:14:29 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 typedef struct s_flags
 {
 	int		width; // ex = %10s "print min of 10 char from str"
-	int		precision; // ".precision" ex: input = 1234 %.3d = "123" 
-	char	*len_flags; // "hh, h, l, ll, j and z"
+	int		precision; // ".precision" ex: input = 1234 %.3d = "123"
 	char	specifier; // "sSpdDioOuUxXcC" %d, %i, %s etc..-
-	char	padding; // "+-0(SPACE)#"
+	char	padding; // "+(SPACE)#"
+	char	left_align; // for '-' flag
+	int		zero_pad; // for '0' flags
 }		t_flags;
 
 typedef struct s_list
@@ -42,9 +43,6 @@ void	ft_putchar(char c); //OK
 
 // Helper functions
 void	print_padding(int length, char pad_char, t_list *op);
-int		get_sign(double value, t_flags *flags);
-int		get_precision(t_flags *flags);
-int		get_padding(int total_len, t_flags *flags);
 char	*ft_itoa_custombase(unsigned long value, int base);
 void	parse_flags(t_flags *flags, const char *format, size_t *i);
 
@@ -52,10 +50,8 @@ void	parse_flags(t_flags *flags, const char *format, size_t *i);
 void	print_int(t_flags *flags, t_list *op);
 void	print_char(t_flags *flags, t_list *op);
 void	print_string(t_flags *flags, t_list *op);
-void	print_float(t_flags *flags, t_list *op);
 void	print_ptr(t_flags *flags, t_list *op);
 void	print_hex(t_flags *flags, t_list *op);
 void	print_unsigned(t_flags *flags, t_list *op);
-void	print_octal(t_flags *flags, t_list *op);
 int		ft_printf(const char *format, ...);
 #endif

@@ -6,11 +6,13 @@
 #    By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 22:30:08 by dopereir          #+#    #+#              #
-#    Updated: 2024/07/15 21:00:50 by rache            ###   ########.fr        #
+#    Updated: 2024/07/04 21:08:02 by rache            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
+TEST_EXEC = test_printf
 
 SOURCES = $(wildcard *.c)
 
@@ -24,19 +26,26 @@ RANLIB = ranlib
 
 remove = rm -f
 
+TEST_SRCS = main_test.c
+
+TEST_OBJS = $(TEST_SRCS:.c=.o)
+
 objs = $(SOURCES:.c=.o)
 
-all: $(NAME)
+all: $(NAME) $(TEST_EXEC)
 
 $(NAME): $(objs)
 	$(AR) $(NAME) $(objs)
 	$(RANLIB) $(NAME)
+
+$(TEST_EXEC): $(NAME) $(TEST_OBJS)
+	$(CC) $(FLAGS) -o $(TEST_EXEC) $(TEST_OBJS) -L. -lftprintf
 	
 %.o: %.c
 	$(CC) $(FLAGS) -c -o $@ $<
 	
 clean:
-	$(remove) $(objs)
+	$(remove) $(objs) $(TEST_OBJS) $(TEST_EXEC)
 
 fclean:	clean
 	$(remove) $(NAME)

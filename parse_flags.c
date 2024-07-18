@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:49:46 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/15 20:10:51 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/17 22:44:39 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ void	parse_padding(t_flags *flags, const char *format, size_t *i)
 {
 	while (ft_strchr("+-0# ", format[*i]))
 	{
-		flags->padding = format[*i];
+		if (format[*i] == '+' || format[*i] == ' ' || format[*i] == '#')
+			flags->padding = format[*i];
+		else if (format[*i] == '0')
+			flags->zero_pad = 1;
+		else if (format [*i] == '-')
+			flags->left_align = '-';
 		(*i)++;
 	}
 }
@@ -33,34 +38,6 @@ void	parse_number(int *field, const char *format, size_t *i)
 	}
 }
 
-void	parse_length(t_flags *flags, const char *format, size_t *i)
-{
-	if (ft_strchr("hljz", format[*i]))
-	{
-		if ((format[*i] == 'h' && format[*i + 1] == 'h')
-			|| (format[*i] == 'l' && format[*i + 1] == 'l'))
-		{
-			if (format[*i] == 'h')
-				flags->len_flags = "hh";
-			else
-				flags->len_flags = "ll";
-			(*i)++;
-		}
-		else
-		{
-			if (format[*i] == 'h')
-				flags->len_flags = "h";
-			else if (format[*i] == 'l')
-				flags->len_flags = "l";
-			else if (format[*i] == 'j')
-				flags->len_flags = "j";
-			else if (format[*i] == 'z')
-				flags->len_flags = "z";
-		}
-		(*i)++;
-	}
-}
-
 void	parse_flags(t_flags *flags, const char *format, size_t *i)
 {
 	parse_padding(flags, format, i);
@@ -70,8 +47,7 @@ void	parse_flags(t_flags *flags, const char *format, size_t *i)
 		(*i)++;
 		parse_number(&(flags->precision), format, i);
 	}
-	parse_length(flags, format, i);
-	if (ft_strchr("sSpdDioOuUxXcC%", format[*i]))
+	if (ft_strchr("cspdiuxX%", format[*i]))
 	{
 		flags->specifier = format[*i];
 		(*i)++;

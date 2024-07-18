@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:37:07 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/04 22:46:52 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/17 23:19:23 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,17 @@ static void	ft_putstr(const char *str, t_list *op)
 
 void	print_unsigned(t_flags *flags, t_list *op)
 {
-	char	*str;
+	char			*str;
+	unsigned int	value;
+	int				len;
+	int				padding;
 
-	auto unsigned int value = va_arg(op->ap, unsigned int);
+	value = va_arg(op->ap, unsigned int);
 	str = ft_itoa_custombase(value, 10);
-	auto int len = ft_strlen(str);
+	len = ft_strlen(str);
 	if (flags->precision >= 0 && flags->precision > len)
 		len = flags->precision;
-	auto int padding = 0;
+	padding = 0;
 	if (flags->width > len)
 		padding = flags->width - len;
 	if (flags->padding != ' ' && flags->padding != '0' && padding > 0)

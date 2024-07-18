@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:50:25 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/13 01:55:47 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/18 22:48:36 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,12 @@ static void	handle_specifier(t_flags *flags, t_list *op)
 		print_char(flags, op);
 	else if (flags->specifier == 's')
 		print_string(flags, op);
-	else if (flags->specifier == 'f')
-		print_float(flags, op);
 	else if (flags->specifier == 'p')
 		print_ptr(flags, op);
 	else if (flags->specifier == 'x' || flags->specifier == 'X')
 		print_hex(flags, op);
 	else if (flags->specifier == 'u')
 		print_unsigned(flags, op);
-	else if (flags->specifier == 'o')
-		print_octal(flags, op);
 }
 
 static void	print_char_local(char c, t_list *op)
@@ -47,9 +43,10 @@ static void	parse_and_print(const char *format, t_list *op)
 
 	flags.width = 0;
 	flags.precision = -1;
-	flags.len_flags = 0;
 	flags.specifier = 0;
 	flags.padding = 0;
+	flags.zero_pad = 0;
+	flags.left_align = 0;
 	start_i = op->i;
 	parse_flags(&flags, format, &op->i);
 	handle_specifier(&flags, op);
@@ -60,18 +57,22 @@ int	ft_printf(const char *format, ...)
 {
 	t_list	op;
 
-	op.i = 0;
 	op.count = 0;
 	va_start(op.ap, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			if (*(format + 1) == '%')
-				print_char_local('%', &op);
 			format++;
-			parse_and_print(format, &op);
-			format += op.i - 1;
+			if (*format == '%')
+				print_char_local('%', &op);
+			else
+			{
+				op.i = 0;
+				parse_and_print(format, &op);
+				format += op.i;
+				continue ;
+			}
 		}
 		else
 			print_char_local(*format, &op);

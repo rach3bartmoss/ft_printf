@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 23:34:27 by dopereir          #+#    #+#             */
-/*   Updated: 2024/06/28 22:37:04 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/17 23:13:42 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 
 int	count_digits(int n)
 {
+	int	count;
+
 	if (n == 0)
 		return (1);
 	if (n == INT_MIN)
 		return (11);
-	auto int count = 0;
+	count = 0;
 	while (n != 0)
 	{
 		count++;
