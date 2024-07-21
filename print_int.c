@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 10:40:33 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/18 22:56:23 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/22 00:07:58 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,12 @@ void	print_int(t_flags *flags, t_list *op)
 	int		sign;
 
 	value = va_arg(op->ap, int);
-	str = ft_itoa(value);
 	if (value < 0)
 		str = ft_itoa(-value);
+	else
+		str = ft_itoa(value);
+	if (!str)
+		return ;
 	len = ft_strlen(str);
 	sign = 0;
 	if (value < 0 || flags->padding == '+' || flags->padding == ' ')
@@ -91,7 +94,7 @@ void	print_int(t_flags *flags, t_list *op)
 	if (flags->precision > len)
 		print_padding(flags->precision - len, '0', op);
 	print_integer_str(str, op);
-	if (flags->padding == '-')
+	if (flags->left_align == '-')
 		print_padding(padding, ' ', op);
 	free(str);
 }
