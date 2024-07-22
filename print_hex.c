@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:29:52 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/17 23:44:13 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/22 21:29:23 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	print_hex(t_flags *flags, t_list *op)
 
 	value = va_arg(op->ap, unsigned int);
 	str = ft_itoa_custombase(value, 16);
+	if (!str)
+		return ;
 	len = ft_strlen(str);
 	padding = handle_flags(flags, value, len, op);
 	ft_putstr(str, op, flags);

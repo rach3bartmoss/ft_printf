@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:37:07 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/17 23:19:23 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:28:29 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	print_unsigned(t_flags *flags, t_list *op)
 
 	value = va_arg(op->ap, unsigned int);
 	str = ft_itoa_custombase(value, 10);
+	if (!str)
+		return ;
 	len = ft_strlen(str);
 	if (flags->precision >= 0 && flags->precision > len)
 		len = flags->precision;
