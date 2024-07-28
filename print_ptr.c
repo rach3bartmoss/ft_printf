@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:30:10 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/22 21:26:17 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/17 23:25:41 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	print_ptr(t_flags *flags, t_list *op)
 
 	ptr = va_arg(op->ap, void *);
 	str = ft_itoa_custombase((unsigned long)ptr, 16);
-	if (!str)
-		return ;
 	len = ft_strlen(str) + 2;
 	if (flags->precision >= 0 && flags->precision > len - 2)
 		len = flags->precision + 2;

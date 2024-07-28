@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/17 23:14:29 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/28 17:00:17 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ void	ft_putchar(char c); //OK
 void	print_padding(int length, char pad_char, t_list *op);
 char	*ft_itoa_custombase(unsigned long value, int base);
 void	parse_flags(t_flags *flags, const char *format, size_t *i);
+
+//Bonus functions
+void	print_sign_bonus(t_flags *flags, int value, t_list *op);
+void	print_integer_str_bonus(const char *str, t_list *op);
+int		calculate_padding_bonus(t_flags *flags, int len, int sign);
+void	handle_padding_bonus(t_flags *flags, int padding, int value,
+			t_list *op);
+int		print_prefix_bonus(int prefix_len, t_flags *flags, t_list *op);
 
 // Main functions
 void	print_int(t_flags *flags, t_list *op);

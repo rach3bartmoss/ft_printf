@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/18 22:06:48 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/28 18:14:07 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int main()
     ft_printf("%d\n\n", 42);
 
     printf("printf:    %%i: ");
-    printf("%i\n", -42);
+    printf("%i\n", -2147483647);
     ft_printf("ft_printf: %%i: ");
-    ft_printf("%i\n\n", -42);
+    ft_printf("%i\n\n", -2147483647);
 
     printf("printf:    %%u: ");
     printf("%u\n", 42U);
@@ -47,6 +47,12 @@ int main()
     printf("%c\n", 'A');
     ft_printf("ft_printf: %%c: ");
     ft_printf("%c\n\n", 'A');
+
+
+    printf("printf:    %%5c: ");
+    printf("%5c\n", 'A');
+    ft_printf("ft_printf: %%5c: ");
+    ft_printf("%5c\n\n", 'A');
 
     printf("printf:    %%s: ");
     printf("%s\n", "Hello");
@@ -164,7 +170,7 @@ int main()
     ft_printf("ft_printf: %%#o: ");
     ft_printf("%#o\n\n", 42);
 */
-    printf("printf:    %%#X: ");
+    printf("printf: %%#X: ");
     printf("%#X\n", 2077);
     ft_printf("ft_printf: %%#X: ");
     ft_printf("%#X\n\n", 2077);
@@ -188,6 +194,21 @@ int main()
 
      printf("printf:    Left-aligned: %-10d %-10s\n", 42, "left");
      ft_printf("ft_printf: Left-aligned: %-10d %-10s\n\n", 42, "left");
+
+     //some paco bonus tests
+     printf("SOME PACO BONUS TESTS:\n\n");
+    
+    printf("printf:   %%.p: ");
+    printf("%p\n", NULL);
+    ft_printf("ft_printf:   %%.p: ");
+    ft_printf("%.p\n", NULL);
+
+    printf("printf: %%.s: ");
+    printf("%.s\n", "hello");
+    ft_printf("ft_printf: %%.s: ");
+    ft_printf("%.s\n", "hello");
+
+
 
     return 0;
 }

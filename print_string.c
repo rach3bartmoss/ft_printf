@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:17 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/21 23:40:05 by rache            ###   ########.fr       */
+/*   Updated: 2024/07/28 18:20:34 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_string(t_flags *flags, t_list *op)
 
 	str = va_arg(op->ap, char *);
 	if (!str)
-		str = "(null)";
+		str = "(nil)";
 	len = ft_strlen(str);
 	if (flags->precision >= 0 && flags->precision < len)
 		len = flags->precision;
@@ -41,4 +41,6 @@ void	print_string(t_flags *flags, t_list *op)
 	}
 	if (flags->left_align == '-')
 		print_padding(padding, ' ', op);
+	printf("%d\n", flags->precision);
+	printf("%d\n", len);
 }
