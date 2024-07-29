@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/28 18:14:07 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/29 01:27:17 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,18 +197,51 @@ int main()
 
      //some paco bonus tests
      printf("SOME PACO BONUS TESTS:\n\n");
-    
-    printf("printf:   %%.p: ");
-    printf("%p\n", NULL);
-    ft_printf("ft_printf:   %%.p: ");
-    ft_printf("%.p\n", NULL);
 
-    printf("printf: %%.s: ");
+    printf("printf:    %%.p: ");
+    printf("%p\n", NULL);
+    ft_printf("ft_printf: %%.p: ");
+    ft_printf("%.p\n\n", NULL);
+
+    printf("printf:    %%.s: ");
     printf("%.s\n", "hello");
     ft_printf("ft_printf: %%.s: ");
-    ft_printf("%.s\n", "hello");
+    ft_printf("%.s\n\n", "hello");
 
+    printf("printf:    %%.3s: ");
+    printf("%.3s\n", "hello");
+    ft_printf("ft_printf: %%.3s: ");
+    ft_printf("%.3s\n\n", "hello");
 
+    printf("printf:    %%.10s: ");
+    printf("%.10s\n", "hello");
+    ft_printf("ft_printf: %%.10s: ");
+    ft_printf("%.10s\n\n", "hello");
+
+    printf("printf:    %%10.s: ");
+    printf("%10.s\n", "hello");
+    ft_printf("ft_printf: %%10.s: ");
+    ft_printf("%10.s\n\n", "hello");
+
+    printf("printf:    %%-10.s: ");
+    printf("%-10.s\n", "hello");
+    ft_printf("ft_printf: %%-10.s: ");
+    ft_printf("%-10.s\n\n", "hello");
+
+    printf("printf:    %%.03s: ");
+    printf("%.03s\n", "hello");
+    ft_printf("ft_printf: %%.03s: ");
+    ft_printf("%.03s\n\n", "hello");
+
+    printf("printf:    %%6.3s: ");
+    printf("%6.3s\n", "hello");
+    ft_printf("ft_printf: %%6.3s: ");
+    ft_printf("%6.3s\n\n", "hello");
+
+    printf("printf:    %%-6.3s: ");
+    printf("%-6.3s\n", "hello");
+    ft_printf("ft_printf: %%-6.3s: ");
+    ft_printf("%-6.3s\n\n", "hello");
 
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:49:46 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/28 18:27:11 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/29 00:57:02 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	parse_flags(t_flags *flags, const char *format, size_t *i)
 	if (format[*i] == '.')
 	{
 		(*i)++;
+		flags->precision = 0;
 		parse_number(&(flags->precision), format, i);
 	}
 	if (ft_strchr("cspdiuxX%", format[*i]))
