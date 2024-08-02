@@ -6,13 +6,14 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:29:52 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/28 17:00:55 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/02 01:02:25 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static void	ft_putstr(const char *str, t_list *op, t_flags *flags)
 {
@@ -46,12 +47,12 @@ static int	handle_flags(t_flags *flags, unsigned int value, int len,
 	padding = 0;
 	if (flags->width > len + prefix_len)
 		padding = flags->width - (len + prefix_len);
-	if (flags->padding != '-' && flags->padding != '0' && padding > 0)
+	if (flags->left_align != '-' && flags->zero_pad != 1 && padding > 0)
 		print_padding(padding, ' ', op);
 	print_prefix_bonus(prefix_len, flags, op);
 	if (flags->precision > 0)
 		print_padding(flags->precision - len, '0', op);
-	if (flags->padding == '0' && padding > 0 && flags->precision < 0)
+	if (flags->zero_pad == 1 && padding > 0 && flags->precision < 0)
 		print_padding(padding, '0', op);
 	return (padding);
 }
@@ -68,7 +69,7 @@ void	print_hex(t_flags *flags, t_list *op)
 	len = ft_strlen(str);
 	padding = handle_flags(flags, value, len, op);
 	ft_putstr(str, op, flags);
-	if (flags->padding == '-' && padding > 0)
+	if (flags->left_align == '-' && padding > 0)
 		print_padding(padding, ' ', op);
 	free(str);
 }

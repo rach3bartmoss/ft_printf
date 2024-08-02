@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:17 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/28 18:20:34 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/07/29 00:57:44 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,4 @@ void	print_string(t_flags *flags, t_list *op)
 	}
 	if (flags->left_align == '-')
 		print_padding(padding, ' ', op);
-	printf("%d\n", flags->precision);
-	printf("%d\n", len);
 }

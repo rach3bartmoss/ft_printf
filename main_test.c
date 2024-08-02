@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/29 01:27:17 by rache            ###   ########.fr       */
+/*   Updated: 2024/08/01 23:32:10 by rache            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libftprintf.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
@@ -243,5 +244,100 @@ int main()
     ft_printf("ft_printf: %%-6.3s: ");
     ft_printf("%-6.3s\n\n", "hello");
 
+    ft_printf("ADD TESTS FOR MORE MIXED FLAGS VARIATIONS\n\n\n");
+
+    printf("\nADDITIONAL TESTS:\n\n");
+
+    // Testing precision with different types
+    printf("printf:    %%5.2d: ");
+    printf("%5.2d\n", 123);
+    ft_printf("ft_printf: %%5.2d: ");
+    ft_printf("%5.2d\n\n", 123);
+
+    printf("printf:    %%5.2u: ");
+    printf("%5.2u\n", 123);
+    ft_printf("ft_printf: %%5.2u: ");
+    ft_printf("%5.2u\n\n", 123);
+
+    // Testing zero-padding with precision
+    printf("printf:    %%5.2d: ");
+    printf("%5.2d\n", 123);
+    ft_printf("ft_printf: %%5.2d: ");
+    ft_printf("%5.2d\n\n", 123);
+
+    // Testing with very large width and small precision
+    printf("printf:    %%20.2s: ");
+    printf("%20.2s\n", "Hello");
+    ft_printf("ft_printf: %%20.2s: ");
+    ft_printf("%20.2s\n\n", "Hello");
+
+    // Testing with zero precision
+    printf("printf:    %%.0d: ");
+    printf("%.0d\n", 0);
+    ft_printf("ft_printf: %%.0d: ");
+    ft_printf("%.0d\n\n", 0);
+
+    // Testing with zero precision and non-zero value
+    printf("printf:    %%.0d: ");
+    printf("%.0d\n", 1);
+    ft_printf("ft_printf: %%.0d: ");
+    ft_printf("%.0d\n\n", 1);
+
+    // Testing with precision for pointer
+    printf("printf:    %%15p: ");
+    printf("%15p\n", NULL);
+    ft_printf("ft_printf: %%15p: ");
+    ft_printf("%15p\n\n", NULL);
+
+    // Testing with negative numbers and different flags
+    printf("printf:    %% d: ");
+    printf("% d\n", -42);
+    ft_printf("ft_printf: %% d: ");
+    ft_printf("% d\n\n", -42);
+
+    printf("printf:    %%+d: ");
+    printf("%+d\n", -42);
+    ft_printf("ft_printf: %%+d: ");
+    ft_printf("%+d\n\n", -42);
+
+    // Testing with very large numbers
+    printf("printf:    %%d: ");
+    printf("%d\n", 2147483647);
+    ft_printf("ft_printf: %%d: ");
+    ft_printf("%d\n\n", 2147483647);
+
+    printf("printf:    %%d: ");
+    printf("%d\n", -2147483647);
+    ft_printf("ft_printf: %%d: ");
+    ft_printf("%d\n\n", -2147483647);
+
+    // Testing with unusual flag combinations
+    printf("printf:    %%#08x: ");
+    printf("%#08x\n", 42);
+    ft_printf("ft_printf: %%#08x: ");
+    ft_printf("%#08x\n\n", 42);
+
+    printf("printf:    %%-#8x: ");
+    printf("%-#8x\n", 42);
+    ft_printf("ft_printf: %%-#8x: ");
+    ft_printf("%-#8x\n\n", 42);
+
+    // Testing with strings containing % character
+    printf("printf:    %%s: ");
+    printf("%s\n", "50% off!");
+    ft_printf("ft_printf: %%s: ");
+    ft_printf("%s\n\n", "50% off!");
+
+    // Testing with empty string
+    printf("printf:    %%s: ");
+    printf("%s\n", "");
+    ft_printf("ft_printf: %%s: ");
+    ft_printf("%s\n\n", "");
+
+    // Testing with precision larger than string length
+    printf("printf:    %%.20s: ");
+    printf("%.20s\n", "Hello");
+    ft_printf("ft_printf: %%.20s: ");
+    ft_printf("%.20s\n\n", "Hello");
     return 0;
 }
