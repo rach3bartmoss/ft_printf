@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 23:34:27 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/20 15:03:47 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/05 22:05:17 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	count_digits(int n)
 	if (n == 0)
 		return (1);
 	if (n == INT_MIN)
-		return (11);
+		return (10);
 	count = 0;
 	while (n != 0)
 	{
@@ -31,7 +31,7 @@ int	count_digits(int n)
 	return (count);
 }
 
-char	*convert_to_string(int n)
+char	*convert_to_string(long n)
 {
 	char	*str;
 
@@ -43,8 +43,7 @@ char	*convert_to_string(int n)
 	if (n == INT_MIN)
 	{
 		str[0] = '-';
-		str[1] = '2';
-		n = 214748364;
+		n = 2147483648;
 	}
 	else if (is_negative)
 	{
@@ -60,7 +59,7 @@ char	*convert_to_string(int n)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	return (convert_to_string(n));
 }

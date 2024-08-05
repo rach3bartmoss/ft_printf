@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/01 23:32:10 by rache            ###   ########.fr       */
+/*   Updated: 2024/08/05 22:19:30 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 
 int main()
 {
@@ -339,5 +340,15 @@ int main()
     printf("%.20s\n", "Hello");
     ft_printf("ft_printf: %%.20s: ");
     ft_printf("%.20s\n\n", "Hello");
+
+    printf("printf:    %%d: ");
+    printf("%d\n", INT_MIN);
+    ft_printf("ft_printf: %%d: ");
+    ft_printf("%d\n\n", INT_MIN);
+
+    printf("printf:    %%-d: ");
+    printf("%-d\n", INT_MIN);
+    ft_printf("ft_printf: %%-d: ");
+    ft_printf("%-d\n\n", INT_MIN);
     return 0;
 }

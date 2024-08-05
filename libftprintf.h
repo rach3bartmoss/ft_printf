@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/02 01:31:40 by rache            ###   ########.fr       */
+/*   Updated: 2024/08/05 22:05:15 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_list
 int		ft_atoi(const char *str); //OK
 char	*ft_strchr(const char *s, int c); //OK
 int		ft_isdigit(int i); //OK
-char	*ft_itoa(int n); //OK
+char	*ft_itoa(long n); //OK
 size_t	ft_strlen(const char *str); //OK
 void	ft_putchar(char c); //OK
 
