@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_padding_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopereir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 16:48:25 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/28 17:06:05 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:30:30 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	handle_padding_bonus(t_flags *flags, int padding, int value, t_list *op)
 {
 	if (flags->zero_pad && !flags->left_align)
 	{
-		print_sign_bonus(flags, value, op);
-		print_padding(padding, '0', op);
+			print_sign_bonus(flags, value, op);
+			print_padding(padding, '0', op);
 	}
 	else if (!flags->left_align)
 	{

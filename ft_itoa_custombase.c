@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 16:20:32 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/17 23:13:01 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:36:45 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_itoa_custombase(unsigned long value, int base)
 		len = 1;
 	str = (char *)malloc(len + 1);
 	if (!str)
-		return (NULL);
+		return (str);
 	str[len] = '\0';
 	while (len-- > 0)
 	{

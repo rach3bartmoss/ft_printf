@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:30:10 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/17 23:25:41 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:36:43 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,20 @@ void	print_ptr(t_flags *flags, t_list *op)
 	ptr = va_arg(op->ap, void *);
 	str = ft_itoa_custombase((unsigned long)ptr, 16);
 	len = ft_strlen(str) + 2;
-	if (flags->precision >= 0 && flags->precision > len - 2)
-		len = flags->precision + 2;
 	padding = 0;
 	if (flags->width > len)
-		padding = flags->width - len;
+		padding = flags->width - len - 2;
 	if (flags->padding != ' ' && padding > 0)
 		print_padding(padding, ' ', op);
-	ft_putstr("0x", op);
-	if (flags->precision > 0)
-		print_padding(flags->precision - (len - 2), '0', op);
-	ft_putstr(str, op);
+	if (!ptr)
+	{
+		ft_putstr("(nil)", op);
+	}
+	else
+	{
+		ft_putstr("0x", op);
+		ft_putstr(str, op);
+	}
 	if (flags->padding == '-' && padding > 0)
 		print_padding(padding, ' ', op);
 	free(str);

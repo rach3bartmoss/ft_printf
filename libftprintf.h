@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/05 22:05:15 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:27:28 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdarg.h>
 # include <stddef.h>
+# include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
 
 typedef struct s_flags
 {
