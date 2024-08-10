@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 16:38:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/06 18:54:16 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:36:36 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	calculate_padding_bonus(t_flags *flags, int len, int sign)
 	total_len = len;
 	if (flags->precision > len)
 		total_len = flags->precision;
-	if (sign)
+	if (sign || flags->padding == ' ')
 		total_len++;
 	if (flags->width > total_len)
 		return (flags->width - total_len);

@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/06 19:30:37 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:23:37 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -392,6 +392,22 @@ int main()
     ft_printf("ft_printf: %%04d: ");
     ft_printf("%04d\n\n", 20777);
 
+    printf("printf:    %%.10d: ");
+    printf("[%.10d]\n", INT_MIN);
+    ft_printf("ft_printf: %%.10d: ");
+    ft_printf("[%.10d]\n\n", INT_MIN);
+
+    printf("printf:    %%.11d: ");
+    printf("[%.11d]\n", INT_MIN);
+    ft_printf("ft_printf: %%.11d: ");
+    ft_printf("[%.11d]\n\n", INT_MIN);
+
+    printf("printf:    %%.12d: ");
+    printf("[%.12d]\n", INT_MIN);
+    ft_printf("ft_printf: %%.12d: ");
+    ft_printf("[%.12d]\n\n", INT_MIN);
+
+/*
     printf("********STRINGS TESTING***********\n\n");
     printf("printf:    %%-25s: hello");
     printf("%-25s\n", "hello");
@@ -421,5 +437,20 @@ int main()
     ft_printf("ft_printf null pointer:%%p: ");
     ft_printf("%p\n\n", NULL);
 
+    printf("printf null pointer:   %%8p: ");
+    printf("[the address is %8p]\n", (void *)0);
+    ft_printf("ft_printf null pointer:%%8p: ");
+    ft_printf("[the address is %8p]\n\n", (void *)0);
+
+    printf("printf null pointer:   %%-8p: ");
+    printf("[the address is %-8p]\n", (void *)0);
+    ft_printf("ft_printf null pointer:%%-8p: ");
+    ft_printf("[the address is %-8p]\n\n", (void *)0);
+
+    printf("printf null pointer:   %%-25p: ");
+    printf("[the address is %25p]\n", &o);
+    ft_printf("ft_printf null pointer:%%-25p: ");
+    ft_printf("[the address is %25p]\n\n", &o);
+*/
     return 0;
 }

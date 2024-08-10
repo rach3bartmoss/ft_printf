@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:30:10 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/06 18:36:43 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:58:58 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,39 @@ static void	ft_putstr(const char *str, t_list *op)
 	}
 }
 
+static void	null_ptr_case(t_flags *flags, t_list *op)
+{
+	if (flags->width > 0 && flags->left_align != '-')
+		print_padding(flags->width - 5, ' ', op);
+	ft_putstr("(nil)", op);
+}
+
 void	print_ptr(t_flags *flags, t_list *op)
 {
 	void	*ptr;
 	char	*str;
 	int		len;
-	int		padding;
 
 	ptr = va_arg(op->ap, void *);
 	str = ft_itoa_custombase((unsigned long)ptr, 16);
 	len = ft_strlen(str) + 2;
-	padding = 0;
-	if (flags->width > len)
-		padding = flags->width - len - 2;
-	if (flags->padding != ' ' && padding > 0)
-		print_padding(padding, ' ', op);
+	if (flags->padding != ' ' && flags->width - len > 0 && ptr != NULL
+		&& flags->left_align != '-')
+		print_padding(flags->width - len, ' ', op);
 	if (!ptr)
-	{
-		ft_putstr("(nil)", op);
-	}
+		null_ptr_case(flags, op);
 	else
 	{
 		ft_putstr("0x", op);
 		ft_putstr(str, op);
 	}
-	if (flags->padding == '-' && padding > 0)
-		print_padding(padding, ' ', op);
+	if (flags->left_align == '-' && flags->width - len > 0)
+	{
+		if (!ptr)
+			print_padding(flags->width - 5, ' ', op);
+		else
+			print_padding(flags->width - len, ' ', op);
+	}
 	free(str);
 }
 

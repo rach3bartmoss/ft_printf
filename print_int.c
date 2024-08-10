@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 10:40:33 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/06 19:30:21 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/08 18:58:51 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ void	print_int(t_flags *flags, t_list *op)
 	if (value < 0 || flags->padding == '+' || flags->padding == ' ')
 		sign = 1;
 	padding = calculate_padding_bonus(flags, len, sign);
+	//printf("THE LEN IS: %d\nAND THE PRECISION IS %d\n", len, flags->precision);
 	handle_padding_bonus(flags, padding, value, op);
 	if (flags->precision > len)
 		print_padding(flags->precision - len, '0', op);
-	print_integer_str_bonus(str, op);
+	print_integer_str_bonus(str, op, flags);
 	if (flags->left_align == '-')
 		print_padding(padding, ' ', op);
 	free(str);

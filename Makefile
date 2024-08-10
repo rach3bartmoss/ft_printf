@@ -6,7 +6,7 @@
 #    By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 22:30:08 by dopereir          #+#    #+#              #
-#    Updated: 2024/08/06 17:39:29 by dopereir         ###   ########.fr        #
+#    Updated: 2024/08/06 00:11:21 by dopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,6 @@ objs = $(SOURCES:.c=.o)
 
 all: $(NAME) $(TEST_EXEC)
 
-valgrind:
-	valgrind --leak-check=full ./test_printf
-
 $(NAME): $(objs)
 	$(AR) $(NAME) $(objs)
 	$(RANLIB) $(NAME)
@@ -49,6 +46,9 @@ $(TEST_EXEC): $(NAME) $(TEST_OBJS)
 	
 clean:
 	$(remove) $(objs) $(TEST_OBJS) $(TEST_EXEC)
+
+valgrind: $(TEST_EXEC)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TEST_EXEC)
 
 fclean:	clean
 	$(remove) $(NAME)

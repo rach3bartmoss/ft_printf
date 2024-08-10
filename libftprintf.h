@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/06 19:27:28 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/08 18:09:53 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	parse_flags(t_flags *flags, const char *format, size_t *i);
 
 //Bonus functions
 void	print_sign_bonus(t_flags *flags, int value, t_list *op);
-void	print_integer_str_bonus(const char *str, t_list *op);
+void	print_integer_str_bonus(const char *str, t_list *op, t_flags *s_flags);
 int		calculate_padding_bonus(t_flags *flags, int len, int sign);
-void	handle_padding_bonus(t_flags *flags, int padding, int value,
+void	handle_padding_bonus(t_flags *flags, int padding, size_t value,
 			t_list *op);
 int		print_prefix_bonus(int prefix_len, t_flags *flags, t_list *op);
 

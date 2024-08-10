@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:17 by dopereir          #+#    #+#             */
-/*   Updated: 2024/07/29 00:57:44 by rache            ###   ########.fr       */
+/*   Updated: 2024/08/06 23:33:19 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_string(t_flags *flags, t_list *op)
 
 	str = va_arg(op->ap, char *);
 	if (!str)
-		str = "(nil)";
+		str = "(null)";
 	len = ft_strlen(str);
 	if (flags->precision >= 0 && flags->precision < len)
 		len = flags->precision;
