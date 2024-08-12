@@ -6,13 +6,13 @@
 #    By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 22:30:08 by dopereir          #+#    #+#              #
-#    Updated: 2024/08/06 00:11:21 by dopereir         ###   ########.fr        #
+#    Updated: 2024/08/12 20:04:18 by rache            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-TEST_EXEC = test_printf
+#TEST_EXEC = test_printf
 
 SOURCES = $(wildcard *.c)
 
@@ -26,20 +26,19 @@ RANLIB = ranlib
 
 remove = rm -f
 
-TEST_SRCS = main_test.c
+#TEST_SRCS = main_test.c
 
-TEST_OBJS = $(TEST_SRCS:.c=.o)
+#TEST_OBJS = $(TEST_SRCS:.c=.o)
 
 objs = $(SOURCES:.c=.o)
 
-all: $(NAME) $(TEST_EXEC)
+all: $(NAME)
+
+bonus: all
 
 $(NAME): $(objs)
 	$(AR) $(NAME) $(objs)
 	$(RANLIB) $(NAME)
-
-$(TEST_EXEC): $(NAME) $(TEST_OBJS)
-	$(CC) $(FLAGS) -o $(TEST_EXEC) $(TEST_OBJS) -L. -lftprintf
 	
 %.o: %.c
 	$(CC) $(FLAGS) -c -o $@ $<
@@ -55,4 +54,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all valgrind clean fclean re
+.PHONY: all bonus valgrind clean fclean re
