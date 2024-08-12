@@ -6,13 +6,13 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 16:38:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/08 17:36:36 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/12 21:38:58 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	calculate_padding_bonus(t_flags *flags, int len, int sign)
+int	calculate_padding_bonus(int value, t_flags *flags, int len, int sign)
 {
 	int	total_len;
 
@@ -22,7 +22,12 @@ int	calculate_padding_bonus(t_flags *flags, int len, int sign)
 	if (sign || flags->padding == ' ')
 		total_len++;
 	if (flags->width > total_len)
-		return (flags->width - total_len);
+	{
+		if (flags->precision == 0 || value == INT_MIN)
+			return (flags->width - total_len + 1);
+		else
+			return (flags->width - total_len);
+	}
 	else
 		return (0);
 }
