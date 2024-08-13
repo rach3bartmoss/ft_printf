@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/12 21:38:27 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/14 00:00:48 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_isdigit(int i); //OK
 char	*ft_itoa(long n); //OK
 size_t	ft_strlen(const char *str); //OK
 void	ft_putchar(char c); //OK
+char	*ft_strstr(const char *haystack, const char *needle);
 
 // Helper functions
 void	print_padding(int length, char pad_char, t_list *op);

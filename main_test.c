@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/12 21:21:50 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/14 00:19:48 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -366,7 +366,28 @@ int main()
     ft_printf("ft_printf: %%.20s: ");
     ft_printf("%.20s\n\n", "Hello");
 
-    printf("********PRINT_INT TESTING***********\n\n");
+    char    *d = NULL;
+    printf("printf:    %%.6s: ");
+    printf("%.6s\n", d);
+    ft_printf("ft_printf: %%.6s: ");
+    ft_printf("%.6s\n\n", d);
+
+    printf("printf:    %%.s: ");
+    printf("%.s\n", d);
+    ft_printf("ft_printf: %%.s: ");
+    ft_printf("%.s\n\n", d);
+
+    printf("printf:    %%.15s: ");
+    printf("%.15s\n", d);
+    ft_printf("ft_printf: %%.15s: ");
+    ft_printf("%.15s\n\n", d);
+
+    printf("printf:    %%s: ");
+    printf("%s\n", "(null)");
+    ft_printf("ft_printf: %%s: ");
+    ft_printf("%s\n\n", d);
+
+    /*printf("********PRINT_INT TESTING***********\n\n");
     printf("printf:    %%d: ");
     printf("%d\n", INT_MIN);
     ft_printf("ft_printf: %%d: ");
@@ -392,20 +413,20 @@ int main()
     ft_printf("ft_printf: %%04d: ");
     ft_printf("%04d\n\n", 20777);
 
-    printf("printf:    %%-15.d: ");
-    printf("[%-15.d]\n", 0);
-    ft_printf("ft_printf: %%-15.d: ");
-    ft_printf("[%-15.d]\n\n", 0);
+    printf("printf:    %%.10d: ");
+    printf("[%.10d]\n", INT_MIN);
+    ft_printf("ft_printf: %%.10d: ");
+    ft_printf("[%.10d]\n\n", INT_MIN);
 
     printf("printf:    %%.5d: ");
-    printf("[%5d]\n", INT_MIN);
+    printf("[%.5d]\n", INT_MIN);
     ft_printf("ft_printf: %%.5d: ");
-    ft_printf("[%5d]\n\n", INT_MIN);
+    ft_printf("[%.5d]\n\n", INT_MIN);
 
-    printf("printf:    %%.15d: ");
-    printf("[%.15d]\n", INT_MIN);
-    ft_printf("ft_printf: %%.15d: ");
-    ft_printf("[%.15d]\n\n", INT_MIN);
+    printf("printf:    %%20.5d: ");
+    printf("[%20.5d]\n", INT_MIN);
+    ft_printf("ft_printf: %%20.5d: ");
+    ft_printf("[%20.5d]\n\n", INT_MIN);
 
     printf("printf:    %%15d: ");
     printf("[%15d]\n", INT_MIN);
@@ -413,10 +434,36 @@ int main()
     ft_printf("[%15d]\n\n", INT_MIN);
 
     printf("printf:    %%20d: ");
-    printf("[%20d]\n", 0);
+    printf("[%20d]\n", -2147483000);
     ft_printf("ft_printf: %%20d: ");
-    ft_printf("[%20d]\n\n", 0);
+    ft_printf("[%20d]\n\n", -2147483000);
 
+    printf("printf:    %%12d: ");
+    printf("[%12d]\n", (int)-2147483648);
+    ft_printf("ft_printf: %%12d: ");
+    ft_printf("[%12d]\n\n", (int)-2147483648);
+
+    printf("printf:    %%.0d: ");
+    printf("[%.0d]\n", 42000);
+    ft_printf("ft_printf: %%.0d: ");
+    ft_printf("[%.0d]\n\n", 42000);
+
+    printf("printf:    %%-10.5d: ");
+    printf("[%-10.5d]\n", INT_MIN);
+    ft_printf("ft_printf: %%-10.5d: ");
+    ft_printf("[%-10.5d]\n\n", INT_MIN);
+
+    printf("printf:    %%030d: ");
+    printf("[%030d]\n", INT_MIN);
+    ft_printf("ft_printf: %%030d: ");
+    ft_printf("[%030d]\n\n", INT_MIN);
+
+    printf("printf:    %%012d: ");
+    printf("[%012d]\n", INT_MIN);
+    ft_printf("ft_printf: %%012d: ");
+    ft_printf("[%012d]\n\n", INT_MIN);*/
+
+printf("\n*****************************************\n");
 /*
     printf("********STRINGS TESTING***********\n\n");
     printf("printf:    %%-25s: hello");
