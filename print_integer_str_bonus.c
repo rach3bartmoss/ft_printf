@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 16:30:35 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/12 23:28:06 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/17 19:48:11 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	print_integer_str_bonus(const char *str, t_list *op, t_flags *flags)
 
 	value = ft_atoi(str);
 	i = 0;
+	if (value < 0)
+		i = 1;
 	if (0 > value)
 		negative_case(op, str, flags);
 	else

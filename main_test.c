@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/14 00:19:48 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/17 19:16:37 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -386,6 +386,192 @@ int main()
     printf("%s\n", "(null)");
     ft_printf("ft_printf: %%s: ");
     ft_printf("%s\n\n", d);
+
+    printf("*********PRINT_UNSIGNED*************\n\n");
+
+    printf("printf:    %%.0u: ");
+    printf("%.0u\n", 1);
+    ft_printf("ft_printf: %%.0u: ");
+    ft_printf("%.0u\n\n", 1);
+
+    printf("printf:    %%.0u: ");
+    printf("%.0u\n", 0);
+    ft_printf("ft_printf: %%.0u: ");
+    ft_printf("%.0u\n\n", 0);
+
+    printf("printf:    %%-10u: ");
+    printf("[%-10u]\n", 0);
+    ft_printf("ft_printf: %%-10u: ");
+    ft_printf("[%-10u]\n\n", 0);
+
+    printf("printf:    %%-10u: ");
+    printf("[%-10u]\n", 1);
+    ft_printf("ft_printf: %%-10u: ");
+    ft_printf("[%-10u]\n\n", 1);
+
+    printf("printf:    %%-10.5u: ");
+    printf("[%-10.5u]\n", 10);
+    ft_printf("ft_printf: %%-10.5u: ");
+    ft_printf("[%-10.5u]\n\n", 10);
+
+    printf("printf:    %%-10.5u: ");
+    printf("[%-10.5u]\n", 5000);
+    ft_printf("ft_printf: %%-10.5u: ");
+    ft_printf("[%-10.5u]\n\n", 5000);
+
+    printf("printf:    %%-15.u: ");
+    printf("[%-15.u]\n", 0);
+    ft_printf("ft_printf: %%-15.u: ");
+    ft_printf("[%-15.u]\n\n", 0);
+
+    printf("printf:    %%-15.10u: ");
+    printf("[%-15.10u]\n", 15);
+    ft_printf("ft_printf: %%-15.10u: ");
+    ft_printf("[%-15.10u]\n\n", 15);
+
+    printf("printf:    %%010u: ");
+    printf("[%010u]\n", 15);
+    ft_printf("ft_printf: %%010u: ");
+    ft_printf("[%010u]\n\n", 15);
+
+    printf("printf:    %%010u: ");
+    printf("[%010u]\n", -15);
+    ft_printf("ft_printf: %%010u: ");
+    ft_printf("[%010u]\n\n", -15);
+
+    printf("printf:    %%05.u: ");
+    printf("[%05u]\n", 15);
+    ft_printf("ft_printf: %%05.u: ");
+    ft_printf("[%05u]\n\n", 15);
+
+    printf("printf:    %%-15.10u: ");
+    printf("[%010u]\n", 15);
+    ft_printf("ft_printf: %%-15.10u: ");
+    ft_printf("[%010u]\n\n", 15);
+
+    printf("printf:    %%01.u: ");
+    printf("[%1.u]\n", 0);
+    ft_printf("ft_printf: %%01.u: ");
+    ft_printf("[%01.u]\n\n", 0);
+
+    printf("printf:    %%01.0u: ");
+    printf("[%1.0u]\n", 0); //THE MAIN PRINTF IGNORE THE ZERO PAD WHEN BOTH ZERO PAD AND PRECISION ARE ON
+    ft_printf("ft_printf: %%01.0u: ");
+    ft_printf("[%01.0u]\n\n", 0);
+
+    printf("*****************PRIN_HEX TESTING ********************\n\n");
+    
+    printf("printf:    %%-#8x: ");
+    printf("%-#8x\n", 42);
+    ft_printf("ft_printf: %%-#8x: ");
+    ft_printf("%-#8x\n\n", 42);
+
+    printf("printf:    %%.4x: ");
+    printf("[%.4x]\n", 42);
+    ft_printf("ft_printf: %%.4x: ");
+    ft_printf("[%.4x]\n\n", 42);
+
+    printf("printf:    %%.0x: ");
+    printf("[%.0x]\n", 0);
+    ft_printf("ft_printf: %%.0x: ");
+    ft_printf("[%.0x]\n\n", 0);
+
+    printf("printf:    %%.0x: ");
+    printf("[%.0x]\n", 2);
+    ft_printf("ft_printf: %%.0x: ");
+    ft_printf("[%.0x]\n\n", 2);
+
+    printf("printf:    %%.4x: ");
+    printf("[%.4x]\n", 0);
+    ft_printf("ft_printf: %%.4x: ");
+    ft_printf("[%.4x]\n\n", 0);
+
+    printf("printf:    %%.14x: ");
+    printf("[%.14x]\n", -1);
+    ft_printf("ft_printf: %%.14x: ");
+    ft_printf("[%.14x]\n\n", -1);
+
+    printf("printf:    %%.20x: ");
+    printf("[%.20x]\n", 3000);
+    ft_printf("ft_printf: %%.20x: ");
+    ft_printf("[%.20x]\n\n", 3000);
+
+
+    printf("printf:    %%-.x: ");
+    printf("[%-.x]\n", 0);
+    ft_printf("ft_printf: %%-.x: ");
+    ft_printf("[%-.x]\n\n", 0);
+
+    printf("printf:    %%-.2x: ");
+    printf("[%-.2x]\n", 42);
+    ft_printf("ft_printf: %%-.2x: ");
+    ft_printf("[%-.2x]\n\n", 42);
+
+    printf("printf:    %%-1.5x: ");
+    printf("[%-1.5x]\n", 42);
+    ft_printf("ft_printf: %%-1.5x: ");
+    ft_printf("[%-1.5x]\n\n", 42);
+
+    printf("printf:    %%-1.5x: ");
+    printf("[%-1.5x]\n", 0);
+    ft_printf("ft_printf: %%-1.5x: ");
+    ft_printf("[%-1.5x]\n\n", 0);
+
+    printf("printf:    %%-1.5x: ");
+    printf("[%-1.5x]\n", 1);
+    ft_printf("ft_printf: %%-1.5x: ");
+    ft_printf("[%-1.5x]\n\n", 1);
+
+    printf("printf:    %%-10.x: ");
+    printf("[%-10.x]\n", 0);
+    ft_printf("ft_printf: %%-10.x: ");
+    ft_printf("[%-10.x]\n\n", 0);
+
+    printf("printf:    %%01.x: ");
+    printf("[%1.x]\n", 0);
+    ft_printf("ft_printf: %%01.x: ");
+    ft_printf("[%01.x]\n\n", 0);
+
+    printf("printf:    %%01.x: ");
+    printf("[%1.0x]\n", 0);
+    ft_printf("ft_printf: %%01.x: ");
+    ft_printf("[%01.0x]\n\n", 0);
+
+    printf("printf:    %%042.2x: ");
+    printf("[%42.2x]\n", 42000);
+    ft_printf("ft_printf: %%042.2x: ");
+    ft_printf("[%042.2x]\n\n", 42000);
+
+    printf("printf:    %%042.20x: ");
+    printf("[%42.20x]\n", 42000);
+    ft_printf("ft_printf: %%042.20x: ");
+    ft_printf("[%042.20x]\n\n", 42000);
+
+    printf("printf:    %%4x: ");
+    printf("[%4x]\n", 42);
+    ft_printf("ft_printf: %%4x: ");
+    ft_printf("[%4x]\n\n", 42);
+
+    printf("printf:    %%05d: ");
+    printf("[%05d]\n", INT_MIN);
+    ft_printf("ft_printf: %%05d: ");
+    ft_printf("[%05d]\n\n", INT_MIN);
+
+    printf("printf:    %%011d: ");
+    printf("[%011d]\n", INT_MIN);
+    ft_printf("ft_printf: %%011d: ");
+    ft_printf("[%011d]\n\n", INT_MIN);
+
+    printf("printf:    %%012d: ");
+    printf("returned: %d\n", printf("[%012d]\n", INT_MIN));
+    ft_printf("ft_printf: %%012d: ");
+    ft_printf("returned: %d", ft_printf("[%012d]\n\n", INT_MIN));
+
+    /*printf("printf:    %%05.0d: ");
+    printf("[%5.0d]\n", 0);
+    ft_printf("ft_printf: %%05.0d: ");
+    ft_printf("[%05.0d]\n\n", 0);*/
+
 
     /*printf("********PRINT_INT TESTING***********\n\n");
     printf("printf:    %%d: ");
