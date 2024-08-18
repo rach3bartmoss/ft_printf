@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:05:50 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/18 15:39:48 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/18 19:42:22 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_flags
 	int		width; // ex = %10s "print min of 10 char from str"
 	int		precision; // ".precision" ex: input = 1234 %.3d = "123"
 	char	specifier; // "sSpdDioOuUxXcC" %d, %i, %s etc..-
-	char	padding; // "+(SPACE)#"
+	char	padding; // "+(SPACE)#" 
 	char	left_align; // for '-' flag
 	int		zero_pad; // for '0' flags
 }		t_flags;

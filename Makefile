@@ -6,56 +6,55 @@
 #    By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 22:30:08 by dopereir          #+#    #+#              #
-#    Updated: 2024/08/18 16:37:38 by dopereir         ###   ########.fr        #
+#    Updated: 2024/08/18 15:07:51 by dopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
 TEST_EXEC = test_printf
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+SOURCES = $(wildcard *.c)
 
-SRCS = $(wildcard *.c)
-BONUS_SRCS = $(wildcard *_bonus.c)
-TEST_SRCS = main_test.c
+CC = gcc
 
-OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-TEST_OBJS = $(TEST_SRCS:.c=.o)
+FLAGS = -Wall -Wextra -Werror
 
 AR = ar rc
+
 RANLIB = ranlib
 
-all: $(NAME)
+remove = rm -f
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
-	$(RANLIB) $@
+TEST_SRCS = main_test.c
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $^
+TEST_OBJS = $(TEST_SRCS:.c=.o)
+
+objs = $(SOURCES:.c=.o)
+
+all: $(NAME) $(TEST_EXEC)
+
+bonus: all
+
+$(NAME): $(objs)
+	$(AR) $(NAME) $(objs)
 	$(RANLIB) $(NAME)
 
-test: $(TEST_EXEC)
-
 $(TEST_EXEC): $(NAME) $(TEST_OBJS)
-	$(CC) $(CFLAGS) -o $@ $(TEST_OBJS) -L. -lftprintf
-
+	$(CC) $(FLAGS) -o $(TEST_EXEC) $(TEST_OBJS) -L. -lftprintf
+	
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c -o $@ $<
+	
+clean:
+	$(remove) $(objs) $(TEST_OBJS) $(TEST_EXEC)
 
 valgrind: $(TEST_EXEC)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TEST_EXEC)
 
-clean:
-	$(RM) $(OBJS) $(BONUS_OBJS) $(TEST_OBJS)
-
-fclean: clean
-	$(RM) $(NAME) $(TEST_EXEC)
+fclean:	clean
+	$(remove) $(NAME)
 
 re: fclean all
 
-re_bonus: fclean bonus
-
-.PHONY: all bonus valgrind clean fclean re test
+.PHONY: all bonus valgrind clean fclean re
