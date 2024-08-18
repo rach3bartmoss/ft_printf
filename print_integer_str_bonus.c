@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 16:30:35 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/17 19:48:11 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/18 01:30:16 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	negative_case(t_list *op, const char *str, t_flags *flags)
 {
 	int	j;
 
-	if (flags->zero_pad == 1)
-		j = 1;
-	else
+	if (flags->zero_pad != 1)
+	{
 		ft_putchar('-');
-	op->count++;
+		op->count++;
+	}
 	if (flags->precision >= (int)ft_strlen(str))
 		print_padding(flags->precision - ft_strlen(str) + 1, '0', op);
 	j = 1;

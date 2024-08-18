@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 01:35:40 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/17 19:16:37 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/18 00:46:01 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -562,10 +562,20 @@ int main()
     ft_printf("ft_printf: %%011d: ");
     ft_printf("[%011d]\n\n", INT_MIN);
 
-    printf("printf:    %%012d: ");
-    printf("returned: %d\n", printf("[%012d]\n", INT_MIN));
-    ft_printf("ft_printf: %%012d: ");
-    ft_printf("returned: %d", ft_printf("[%012d]\n\n", INT_MIN));
+    printf("printf:    %%01.d: ");
+    printf("[%1.d]\n", 0);
+    ft_printf("ft_printf: %%01.d: ");
+    ft_printf("[%01.d]\n\n", 0);
+
+    printf("printf:    %%01.0d: ");
+    printf("[%1.0d]\n", 4);
+    ft_printf("ft_printf: %%01.0d: ");
+    ft_printf("[%01.0d]\n\n", 4);
+
+    printf("printf:    %%03.0d: ");
+    printf("[%3.0d]\n", 9);
+    ft_printf("ft_printf: %%03.0d: ");
+    ft_printf("[%03.0d]\n\n", 9);
 
     /*printf("printf:    %%05.0d: ");
     printf("[%5.0d]\n", 0);
