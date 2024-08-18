@@ -6,7 +6,7 @@
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:37:07 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/17 16:29:14 by dopereir         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:29:14 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@ static void	ft_putstr(const char *str, t_list *op)
 		str++;
 		op->count++;
 	}
-}
-
-int	unsigned_calc_padding(t_flags *flags, int len, int value)
-{
-	int	padding;
-
-	padding = 0;
-	if (flags->width >= len && value == 0 && flags->precision == 0)
-		padding = flags->width - len + 1;
-	else
-		padding = flags->width - len;
-	return (padding);
 }
 
 void	print_unsigned(t_flags *flags, t_list *op)

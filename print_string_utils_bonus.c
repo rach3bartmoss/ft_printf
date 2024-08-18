@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_padding_bonus.c                             :+:      :+:    :+:   */
+/*   print_string_utils_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dopereir <dopereir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 16:48:25 by dopereir          #+#    #+#             */
-/*   Updated: 2024/08/17 19:22:23 by dopereir         ###   ########.fr       */
+/*   Created: 2024/08/18 15:25:06 by dopereir          #+#    #+#             */
+/*   Updated: 2024/08/18 16:15:56 by dopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	handle_padding_bonus(t_flags *flags, int padding, size_t value,
-	t_list *op)
+int	adjust_len(t_flags *flags, int len, int was_null)
 {
-	if (flags->zero_pad == 1 && flags->left_align != '-')
+	if (was_null)
 	{
-		print_sign_bonus(flags, value, op);
-		print_padding(padding, '0', op);
+		if (flags->precision >= 0 && flags->precision < 6)
+			return (0);
+		if (flags->precision >= 6)
+			return (6);
 	}
-	else if (!flags->left_align)
-	{
-		print_padding(padding, ' ', op);
-		print_sign_bonus(flags, value, op);
-	}
-	else
-	{
-		print_sign_bonus(flags, value, op);
-	}
+	else if (flags->precision >= 0 && flags->precision < len)
+		return (flags->precision);
+	return (len);
 }
