@@ -16,4 +16,7 @@ parse_flags.c its reponsible to fill the structure with the values passed as arg
 I invite you to git clone this repository and apply into your projects.
 
 instructions:
-git clone 
+git@github.com:rach3bartmoss/ft_printf.git
+make (to compile and create the static library)
+
+Any suggestion dont hesitate to reach out
